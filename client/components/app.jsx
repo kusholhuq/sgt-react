@@ -8,9 +8,24 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      grades: []
+      grades: [],
+      sum: 0,
+      average: 0
+
     };
 
+  }
+
+  getAverageGrade() {
+    for (let i = 0; i < this.state.grades; i++) {
+      this.setState({
+        sum: this.state.sum + this.state.grades[i].grade
+      });
+
+    }
+    this.setState({
+      average: Math.ceil((this.state.sum) / this.state.grades.length)
+    });
   }
 
   componentDidMount() {
