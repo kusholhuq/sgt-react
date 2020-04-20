@@ -64,21 +64,23 @@ class App extends React.Component {
   deleteAGrade(gradeId) {
     const options = {
       method: 'DELETE'
+
     };
     fetch(`/api/grades/${gradeId}`, options)
       .then(res => res.json())
-      .then(json => console.log(json));
-
-    const newGrades = this.state.grades.slice();
-    let targetIndex;
-    for (let i = 0; i < newGrades.length; i++) {
-      if (newGrades[i].id === gradeId) {
-        targetIndex = i;
-        break;
-      }
-    }
-    newGrades.splice(targetIndex, 1);
-    this.setState({ grades: newGrades });
+      .then(json => {
+        const newGrades = this.state.grades.slice();
+        let targetIndex;
+        for (let i = 0; i < newGrades.length; i++) {
+          if (newGrades[i].id === gradeId) {
+            targetIndex = i;
+            break;
+          }
+        }
+        newGrades.splice(targetIndex, 1);
+        this.setState({ grades: newGrades });
+      })
+    ;
   }
 
   render() {

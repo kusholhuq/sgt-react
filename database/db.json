@@ -17,12 +17,6 @@
       "name": "Douglas Crockford",
       "course": "JavaScript",
       "grade": 100
-    },
-    {
-      "name": "Jiraiya",
-      "course": "Senjutsu",
-      "grade": 30,
-      "id": 33
     }
   ]
 }
