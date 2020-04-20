@@ -48,31 +48,22 @@ class GradeForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div className='row'>
-          <div className='m-1'>
-            <div className='mb-3'><i className='fas fa-user'></i></div>
-            <div className='mb-3'><i className='fas fa-list'></i></div>
-            <div className='mb-2'><i className='fas fa-graduation-cap'></i></div>
-          </div>
-          <div>
-            <div className='mb-2'><input type='name' placeholder='Name' onChange={this.handleName} value={this.state.name}></input></div>
-            <div className='mb-2'> <input type="text" placeholder='Course' onChange={this.handleCourse} value={this.state.course}></input></div>
-            <div className='mb-2'><input type="number" placeholder='Grade' onChange={this.handleGrade} value={this.state.grade} /></div>
-            <div className='d-flex flex-end justify-content-end'>
-              <button className='badge badge-success' type='submit'>Add</button>
-              <button className='badge badge-danger ml-1' type='reset' onClick={this.handleReset}>Cancel</button>
-            </div>
-          </div>
+
+        <div className='form-group d-flex'>
+          <label className='mt-1 mr-2' htmlFor="name"><i className='fas fa-user'></i></label>
+          <input id='name' className='form-control' type='name' placeholder='Name' onChange={this.handleName} value={this.state.name}></input>
         </div>
-
-        <div className='form-group'>
-
+        <div className='form-group d-flex'>
+          <label className='mt-1 mr-2' htmlFor="course"><i className='fas fa-list'></i></label>
+          <input id='course' className='form-control' type="text" placeholder='Course' onChange={this.handleCourse} value={this.state.course}></input>
         </div>
-        <div className='form-group'>
-
+        <div className='form-group d-flex'>
+          <label className='mt-1 mr-2' htmlFor="grade"><i className='fas fa-graduation-cap'></i></label>
+          <input id='grade' className='form-control' type="number" placeholder='Grade' onChange={this.handleGrade} value={this.state.grade}></input>
         </div>
-        <div className='form-group'>
-
+        <div className='d-flex flex-end justify-content-end'>
+          <button className='badge badge-success form-control' type='submit'>Add</button>
+          <button className='badge badge-danger ml-1 form-control' type='reset' onClick={this.handleReset}>Cancel</button>
         </div>
         <div>
 
