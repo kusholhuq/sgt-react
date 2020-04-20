@@ -50,7 +50,7 @@ class App extends React.Component {
     fetch('/api/grades', options)
       .then(res => res.json())
       .then(json => {
-        console.log(json);
+
         this.setState({
           grades: [...this.state.grades, json]
         });

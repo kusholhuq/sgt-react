@@ -17,48 +17,6 @@
       "name": "Douglas Crockford",
       "course": "JavaScript",
       "grade": 100
-    },
-    {
-      "name": "Jiraiya",
-      "course": "Senjutsu",
-      "grade": "1000",
-      "id": 33
-    },
-    {
-      "name": "Jiraiya",
-      "course": "Senjutsu",
-      "grade": "1000",
-      "id": 34
-    },
-    {
-      "name": "cool",
-      "course": "cool",
-      "grade": "50",
-      "id": 35
-    },
-    {
-      "name": "cool",
-      "course": "cool",
-      "grade": "50",
-      "id": 36
-    },
-    {
-      "name": "test",
-      "course": "test",
-      "grade": "1",
-      "id": 37
-    },
-    {
-      "name": "sfasdf",
-      "course": "sdfsf",
-      "grade": "1",
-      "id": 38
-    },
-    {
-      "name": "test",
-      "course": "cool",
-      "grade": "5",
-      "id": 39
     }
   ]
 }
