@@ -6,7 +6,7 @@ class GradeForm extends React.Component {
     this.state = ({
       name: '',
       course: '',
-      grade: ''
+      grade: 0
     });
     this.handleName = this.handleName.bind(this);
     this.handleCourse = this.handleCourse.bind(this);
@@ -32,7 +32,7 @@ class GradeForm extends React.Component {
     const newGrade = {
       name: this.state.name,
       course: this.state.course,
-      grade: this.state.grade
+      grade: parseInt(this.state.grade)
     };
     this.props.onSubmit(newGrade);
   }
@@ -41,7 +41,7 @@ class GradeForm extends React.Component {
     this.setState({
       name: '',
       course: '',
-      grade: ''
+      grade: 0
     });
   }
 
