@@ -12,6 +12,7 @@ class App extends React.Component {
     };
     this.getAverageGrade = this.getAverageGrade.bind(this);
     this.postAGrade = this.postAGrade.bind(this);
+    this.deleteAGrade = this.deleteAGrade.bind(this);
   }
 
   getAverageGrade() {
@@ -60,17 +61,39 @@ class App extends React.Component {
       });
   }
 
+  deleteAGrade(gradeId) {
+    const options = {
+      method: 'DELETE'
+
+    };
+    fetch(`/api/grades/${gradeId}`, options)
+      .then(res => res.json())
+      .then(json => {
+        const newGrades = this.state.grades.slice();
+        let targetIndex;
+        for (let i = 0; i < newGrades.length; i++) {
+          if (newGrades[i].id === gradeId) {
+            targetIndex = i;
+            break;
+          }
+        }
+        newGrades.splice(targetIndex, 1);
+        this.setState({ grades: newGrades });
+      })
+    ;
+  }
+
   render() {
     return (
       <div className='container'>
 
         <Header text="Student Grade Table" average={this.getAverageGrade()}></Header>
 
-        <div className='d-flex'>
+        <div className='d-flex justify-content-between'>
           <div className=' flex-grow-1'>
-            <GradeTable grades={this.state.grades}/>
+            <GradeTable grades={this.state.grades} deleteAGrade={this.deleteAGrade}/>
           </div>
-          <div className='flex-grow-1'>
+          <div className='ml-5'>
             <GradeForm onSubmit={this.postAGrade} ></GradeForm>
           </div>
         </div>
