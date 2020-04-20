@@ -8,28 +8,25 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      grades: [],
-      sum: 0,
-      average: 0
-
+      grades: []
     };
+    this.getAverageGrade = this.getAverageGrade.bind(this);
 
   }
 
   getAverageGrade() {
-    for (let i = 0; i < this.state.grades; i++) {
-      this.setState({
-        sum: this.state.sum + this.state.grades[i].grade
-      });
-
+    if (this.state.grades.length) {
+      const newGradesArray = this.state.grades.concat();
+      const gradeSum = newGradesArray.reduce((a, b) => ({ grade: a.grade + b.grade }));
+      return Math.ceil(gradeSum.grade / newGradesArray.length);
+    } else {
+      return 0;
     }
-    this.setState({
-      average: Math.ceil((this.state.sum) / this.state.grades.length)
-    });
   }
 
   componentDidMount() {
     this.getAllGrades();
+    this.getAverageGrade();
   }
 
   getAllGrades() {
@@ -45,7 +42,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header text="Student Grade Table"></Header>
+        <Header text="Student Grade Table" average={this.getAverageGrade()}></Header>
         <GradeTable grades={this.state.grades}/>
       </div>
     );
