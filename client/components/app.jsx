@@ -10,11 +10,23 @@ class App extends React.Component {
     this.state = {
       grades: []
     };
+    this.getAverageGrade = this.getAverageGrade.bind(this);
 
+  }
+
+  getAverageGrade() {
+    if (this.state.grades.length) {
+      const newGradesArray = this.state.grades.concat();
+      const gradeSum = newGradesArray.reduce((a, b) => ({ grade: a.grade + b.grade }));
+      return Math.ceil(gradeSum.grade / newGradesArray.length);
+    } else {
+      return 0;
+    }
   }
 
   componentDidMount() {
     this.getAllGrades();
+    this.getAverageGrade();
   }
 
   getAllGrades() {
@@ -30,7 +42,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header text="Student Grade Table"></Header>
+        <Header text="Student Grade Table" average={this.getAverageGrade()}></Header>
         <GradeTable grades={this.state.grades}/>
       </div>
     );
