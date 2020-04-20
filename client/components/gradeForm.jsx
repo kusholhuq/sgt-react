@@ -65,9 +65,6 @@ class GradeForm extends React.Component {
           <button className='badge badge-success form-control' type='submit'>Add</button>
           <button className='badge badge-danger ml-1 form-control' type='reset' onClick={this.handleReset}>Cancel</button>
         </div>
-        <div>
-
-        </div>
 
       </form>
     );
